@@ -2,7 +2,7 @@
 
 This project contains a complete, hand-written pipeline for training a GPT-style language model from scratch using raw PyTorch (no HuggingFace `Trainer`, no TRL). 
 
-## 🧠 The Engineering Story (The "Why")
+##  The Engineering Story (The "Why")
 Building the model was easy; making it not collapse was the real challenge. This pipeline was built through debugging three distinct failure modes:
 
 **1. The Tokenizer Collapse (`:` loop)**
@@ -19,7 +19,7 @@ Building the model was easy; making it not collapse was the real challenge. This
 *   **Root Cause:** We diagnosed this by greedy-decoding the model and checking the logits. The model was outputting token 132 (`\n`) at 100% probability. The SFT dataset was fine, but the *base model* had only trained for 2k steps—it hadn't learned language yet. SFT forced it into a local minimum.
 *   **Fix:** Establish an evaluation gate: *Never run SFT until the base model can generate coherent text on its own.* Train the base for 20k+ steps.
 
-## 📂 File Structure
+##  File Structure
 *   `Tokenizers.py`: Trains the ByteLevel BPE and converts text to `train.bin` / `valid.bin`.
 *   `Model.py`: The raw PyTorch GPT architecture (multi-head attention, MLP, LayerNorm).
 *   `Pre_training.py`: The hand-written pretraining loop using memmapped data.
@@ -27,7 +27,7 @@ Building the model was easy; making it not collapse was the real challenge. This
 *   `chat.py`: Inference script.
 *   `Sample generation.py`: Diagnostic script to check generation at different stages.
 
-## 💡 Key Takeaways & Reflections
+##  Key Takeaways & Reflections
 
 **Hardware Constraints drive Engineering Creativity:** 
 My goal was to build a 75.9M parameter model entirely from scratch. Because I was constrained to a local RTX 3050 (6GB VRAM), I couldn't rely on brute force. I had to carefully manage memory, implement gradient accumulation, and avoid unnecessary overhead to train this model without crashing the GPU.
