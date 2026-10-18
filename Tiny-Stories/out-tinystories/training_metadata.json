@@ -1,0 +1,11 @@
+{
+  "iteration": 2000,
+  "best_val_loss": 1.7731765508651733,
+  "model_args": {
+    "n_layer": 16,
+    "n_head": 8,
+    "n_embed": 512,
+    "block_size": 378,
+    "vocab_size": 50000
+  }
+}

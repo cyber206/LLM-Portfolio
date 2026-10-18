@@ -1,0 +1,26 @@
+# 1. Python Virtual Environment (NEVER commit this, it's massive and machine-specific)
+.venv/
+
+# 2. Data files (Way too big for GitHub, and GitHub has a 100MB file limit anyway)
+*.bin
+*.parquet
+data/
+
+# 3. Model Checkpoints & Weights (Huge files, usually >100MB)
+*.pt
+*.pth
+*.safetensors
+ckpt.pt
+sft_model.pt
+
+# 4. HuggingFace / Tokenizer artifacts (Keep tokenizer.json, ignore the rest)
+hf_model/
+# If you have cache folders:
+.cache/
+__pycache__/
+*.pyc
+
+# 5. IDE and OS specific files
+.idea/
+.vscode/
+.DS_Store
