@@ -9,7 +9,7 @@ The pipeline consists of two phases:
 
 *⚠️ **Disclaimer:** This project is for educational and research purposes to study model alignment, instruction tuning, and catastrophic forgetting. The original training dataset contains NSFW text and is **NOT** hosted in this repository.*
 
-## 🛠️ Technical Achievements & Debugging
+##  Technical Achievements & Debugging
 *   **Custom CPT Loop:** Built a raw PyTorch training loop using `np.memmap` for token streaming, handling gradient accumulation, cosine warmup, and mixed precision (`bfloat16`).
 *   **QLoRA Implementation:** Utilized 4-bit quantization (`bitsandbytes`) and targeted LFM2-specific modules (`q_proj`, `k_proj`, `v_proj`, `out_proj`, `in_proj`, `w1`, `w2`, `w3`).
 *   **SFT with TRL:** Transitioned to `SFTTrainer` to handle complex text masking (`completion_only_loss=True`), ensuring the model only trains on the Assistant's responses, not the User prompts.
