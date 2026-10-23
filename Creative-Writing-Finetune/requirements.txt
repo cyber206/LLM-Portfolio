@@ -1,0 +1,9 @@
+--find-links https://download.pytorch.org/whl/cu121
+trl
+datasets
+transformers
+peft
+zstandard # the datasets library (via fsspec) cannot decompress the zstd-compressed data files on Hugging Face
+torch==2.6.0+cu121
+#am getting this error ERROR: Could not find a version that satisfies the requirement torch==2.6.0+cu121 (from versions: 2.6.0, 2.7.0, 2.7.1, 2.8.0, 2.9.0, 2.9.1, 2.10.0, 2.11.0, 2.12.0, 2.12.1, 2.13.0, 2.14.0, 2.14.1)
+#goig with the standard pip install from terminal now idk why its showing this error.
