@@ -37,3 +37,19 @@ The pipeline consists of two phases:
 git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
 pip install -r requirements.txt (please open the requirmenet file the torch libary idk why but it keeps installing the cpu one though i have written what to do)
+
+
+
+**Roadmap & Future Work
+
+This project successfully demonstrates that a complete CPT + SFT alignment pipeline can be built and executed on a 6GB consumer GPU.
+
+Originally, this pipeline was validated using a raw, unfiltered Reddit dataset to test safety alignment bypass and instruction-following under extreme conditions (see CPT result.md).
+
+The Next Phase: Domain-Specific Adaptation
+Because the architecture is model-agnostic and highly efficient, the immediate next step is to pivot this pipeline toward high-value, enterprise use cases.
+
+□ Legal AI (Clause Explainer): Adapting this pipeline using the CUAD (Contract Understanding Atticus Dataset) to build a model capable of summarizing complex legal clauses and answering contract-based Q&A.
+□ Medical Q&A: Fine-tuning on the MedQA dataset to create a lightweight, local medical assistant for studying.
+□ DPO (Direct Preference Optimization): Moving beyond SFT by using DPOTrainer to ensure the model prefers factual, coherent answers over hallucinated or generic ones.
+(Note: Previous experiments using this architecture proved that QLoRA on a 6GB RTX 3050 can achieve high task-specific accuracy for domain adaptation).
